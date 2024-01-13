@@ -22,13 +22,14 @@ jobs:
       cargo_loc: ${{ env.CARGO_LOCA }}
       cargo_bin: ${{ env.CARGO_BIN }}
     steps:
-      - run: echo "Bypass Restriction"
+      - run: echo "Bypass GitHub Action Restriction"
 
   call:
     needs:
       - pre
-    uses: AUTOM77/Rust-Actions/.github/workflows/_bot.yml@main
+    uses: AUTOM77/Rust-Actions/.github/workflows/_botX.yml@main
     with:
       cargo_loc: ${{ needs.pre.outputs.cargo_loc }}
       cargo_bin: ${{ needs.pre.outputs.cargo_bin }}
+      external: libgtk-3-dev
     secrets: inherit
